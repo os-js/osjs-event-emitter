@@ -7,6 +7,10 @@ module.exports = {
   entry: [
     path.resolve(__dirname, 'index.js'),
   ],
+  output: {
+    library: 'osjsEventEmitter',
+    libraryTarget: 'umd'
+  },
   optimization: {
     minimize: mode === 'production'
   },
