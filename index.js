@@ -77,6 +77,7 @@ export class EventEmitter {
    * @param {Function} callback Callback function
    * @param {Object} [options] Options
    * @param {boolean} [options.persist] This even handler cannot be removed unless forced
+   * @param {boolean} [options.once] Fire only once
    * @return {EventHandler} Returns current instance
    */
   on(name, callback, options = {}) {
@@ -95,6 +96,14 @@ export class EventEmitter {
     });
 
     return this;
+  }
+
+  /**
+   * Same as on() except it fires only once
+   * @return {EventHandler} Returns current instance
+   */
+  once(name, callback) {
+    return this.on(name, callback, {once: true});
   }
 
   /**
@@ -144,7 +153,20 @@ export class EventEmitter {
   emit(name, ...args) {
     getEventNames(name).forEach(n => {
       if (this.events[n]) {
-        this.events[n].forEach(({callback}) => callback(...args));
+        let i = this.events[n].length;
+        while (i--) {
+          const {options, callback} = this.events[n][i];
+
+          try {
+            callback(...args);
+          } catch (e) {
+            console.warn(e);
+          }
+
+          if (options && options.once) {
+            this.events[n].splice(i, 1);
+          }
+        }
       }
     });
 
