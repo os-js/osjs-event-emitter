@@ -134,7 +134,7 @@ export class EventEmitter {
         } else {
           this.events[n] = force
             ? []
-            : this.events[n].filter(({options}) => options.persist !== true);
+            : this.events[n].filter(({options}) => options.persist === true);
         }
       });
 
