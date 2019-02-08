@@ -1,4 +1,4 @@
-import {EventEmitter} from './index.js';
+import {EventEmitter} from '../index.js';
 
 describe('EventEmitter', () => {
   it('Should emit event once', () => {
