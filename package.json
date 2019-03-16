@@ -3,8 +3,10 @@
   "version": "1.0.6",
   "description": "A simple event emitter",
   "main": "dist/main.js",
+  "types": "index.d.ts",
   "files": [
-    "dist/"
+    "dist/",
+    "index.d.ts"
   ],
   "scripts": {
     "test": "npm run eslint && npm run test:coverage",
