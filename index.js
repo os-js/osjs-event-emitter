@@ -45,18 +45,18 @@ export class EventEmitter {
 
   /**
    * Create Event Handler
-   * @param {String} [name] A name for logging
+   * @param {string} [name] A name for logging
    */
   constructor(name = 'undefined') {
     /**
      * The name of the handler
-     * @type {String}
+     * @type {string}
      */
     this.name = name;
 
     /**
      * Registered events
-     * @type {Object}
+     * @type {object}
      */
     this.events = {};
   }
@@ -73,12 +73,12 @@ export class EventEmitter {
    *
    * You can supply an array of event names or a comma separated list with a string
    *
-   * @param {String|String[]} name Event name
+   * @param {string|string[]} name Event name
    * @param {Function} callback Callback function
-   * @param {Object} [options] Options
+   * @param {object} [options] Options
    * @param {boolean} [options.persist] This even handler cannot be removed unless forced
    * @param {boolean} [options.once] Fire only once
-   * @return {EventHandler} Returns current instance
+   * @return {EventEmitter} Returns current instance
    */
   on(name, callback, options = {}) {
     options = options || {};
@@ -99,8 +99,8 @@ export class EventEmitter {
   }
 
   /**
-   * Same as on() except it fires only once
-   * @return {EventHandler} Returns current instance
+   * Adds an event handler that only fires once
+   * @return {EventEmitter} Returns current instance
    */
   once(name, callback) {
     return this.on(name, callback, {once: true});
@@ -113,10 +113,10 @@ export class EventEmitter {
    *
    * You can supply an array of event names or a comma separated list with a string
    *
-   * @param {String|String[]} name Event name
+   * @param {string|string[]} name Event name
    * @param {Function} [callback] Callback function
    * @param {boolean} [force=false] Forces removal even if set to persis
-   * @return {EventHandler} Returns current instance
+   * @return {EventEmitter} Returns current instance
    */
   off(name, callback = null, force = false) {
     getEventNames(name)
@@ -146,9 +146,9 @@ export class EventEmitter {
    *
    * You can supply an array of event names or a comma separated list with a string
    *
-   * @param {String|String[]} name Event name
+   * @param {string|string[]} name Event name
    * @param {*} [args] Arguments
-   * @return {EventHandler} Returns current instance
+   * @return {EventEmitter} Returns current instance
    */
   emit(name, ...args) {
     getEventNames(name).forEach(n => {
