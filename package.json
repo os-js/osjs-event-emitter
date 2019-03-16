@@ -3,7 +3,7 @@
   "version": "1.0.7",
   "description": "A simple event emitter",
   "main": "dist/main.js",
-  "types": "index.d.ts",
+  "typings": "index.d.ts",
   "files": [
     "dist/",
     "index.d.ts"
