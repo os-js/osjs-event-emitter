@@ -66,5 +66,35 @@
     "plugins": [
       "@babel/plugin-transform-runtime"
     ]
+  },
+  "esdoc": {
+    "source": "./",
+    "destination": "./doc",
+    "excludes": ["(node_modules|doc|test)"],
+    "plugins": [
+      {
+        "name": "esdoc-standard-plugin",
+        "option": {
+          "brand": {
+            "title": "OS.js EventEmitter API",
+            "description": "OS.js EventEmitter API Documentation",
+            "repository": "https://github.com/os-js/osjs-event-emitter",
+            "author": "Anders Evenrud <andersevenrud@gmail.com>"
+          },
+          "lint": {
+            "enable": false
+          },
+          "coverage": {
+            "enable": false
+          },
+          "undocumentIdentifier": {
+            "enable": false
+          }
+        }
+      },
+      {
+        "name": "esdoc-publish-html-plugin"
+      }
+    ]
   }
 }
