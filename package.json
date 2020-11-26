@@ -32,15 +32,15 @@
   },
   "homepage": "https://github.com/os-js/osjs-event-emitter#readme",
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-transform-runtime": "^7.1.0",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/runtime": "^7.1.2",
-    "@osjs/eslint-config": "^1.0.0",
-    "babel-loader": "^8.0.4",
-    "eslint": "^5.7.0",
-    "webpack": "^4.22.0",
-    "webpack-cli": "^3.1.2"
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/runtime": "^7.12.5",
+    "@osjs/eslint-config": "^2.0.1",
+    "babel-loader": "^8.2.1",
+    "eslint": "^7.14.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   },
   "jest": {
     "collectCoverage": true,
@@ -60,8 +60,10 @@
   },
   "babel": {
     "presets": [
-      ["@babel/preset-env", {
-      }]
+      [
+        "@babel/preset-env",
+        {}
+      ]
     ],
     "plugins": [
       "@babel/plugin-transform-runtime"
@@ -70,7 +72,9 @@
   "esdoc": {
     "source": "./",
     "destination": "./doc",
-    "excludes": ["(node_modules|doc|test)"],
+    "excludes": [
+      "(node_modules|doc|test)"
+    ],
     "plugins": [
       {
         "name": "esdoc-standard-plugin",
